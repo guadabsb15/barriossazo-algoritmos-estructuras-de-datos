@@ -25,7 +25,7 @@ public class RadioAdapter implements Radio {
 
            
    
-   
+
     public RadioAdapter()
     {
         int i;
@@ -49,11 +49,17 @@ public class RadioAdapter implements Radio {
         }
     }
     
-   public void onoff() // toggle on-off
+    /**
+     *
+     * @see toggle on-off
+     */ 
+    @Override
+   public void onoff() 
    {
       isOn= !isOn; 
    }
    
+    @Override
    public void change() //toggle ente AM y FM
    {
        isFm= !isFm;
@@ -104,6 +110,7 @@ public class RadioAdapter implements Radio {
       }
    }
    
+    @Override
    public void retroceder()
    {
         if (isFm) {     
@@ -113,6 +120,7 @@ public class RadioAdapter implements Radio {
       }  
    }
    
+    @Override
    public void save(int pos)  // Guardar en la memoria[pos] la estacion actual *
    {
        if (isFm) {
@@ -140,10 +148,12 @@ public class RadioAdapter implements Radio {
        }
    }
    
+    @Override
    public boolean getOn()     // devuelve si está encendido o pagado
    {
        return isOn;  
    }
+    @Override
    public double getEmisora() // devuelve la emisora
    {
       if (isFm) {
@@ -153,6 +163,7 @@ public class RadioAdapter implements Radio {
       }
    }
    
+    @Override
    public boolean getFM()
    {
        return isFm;

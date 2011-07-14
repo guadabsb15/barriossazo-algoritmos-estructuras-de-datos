@@ -26,7 +26,11 @@ public class RadioReal extends javax.swing.JFrame {
     public RadioReal() {
         initComponents();
         On= r.getOn();
-        mostrarEmisora();
+        if (On){
+            mostrarEmisora();
+        }else{
+            jLabel1.setText("Off");
+        }
     }
 
     /** This method is called from within the constructor to
