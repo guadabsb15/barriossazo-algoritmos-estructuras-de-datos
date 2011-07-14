@@ -8,26 +8,28 @@ package hojadetrabajo1.radio;
  *
  * @author BarriosSazo
  */
-public class AbstractRadio implements Radio {
+public class RadioAdapter implements Radio {
     
-   boolean isFm;
-   double estacionFm;
-   double estacionAm;
-   boolean isOn;
-   double incrementoFm;
-   double incrementoAm;
-   double mayorFm;
-   double mayorAm;
-   double menorFm;
-   double menorAm;
-   double[] estacionesGuardadas; 
-   boolean[] sonFm;
+   private boolean isFm;
+   private double estacionFm;
+   private double estacionAm;
+   private boolean isOn;
+   private double incrementoFm;
+   private double incrementoAm;
+   private double mayorFm;
+   private double mayorAm;
+   private double menorFm;
+   private double menorAm;
+   private double[] estacionesGuardadas; 
+   private boolean[] sonFm;
 
            
    
    
-    public AbstractRadio()
+    public RadioAdapter()
     {
+        int i;
+        
         isFm = true;
         estacionFm= 87.9;
         estacionAm= 530;
@@ -40,6 +42,11 @@ public class AbstractRadio implements Radio {
         menorAm= 530;
         estacionesGuardadas= new double[12];
         sonFm = new boolean[12];
+        
+        for (i= 0; i< 12; i++){
+            estacionesGuardadas[i]=87.9;
+            sonFm[i]=true;
+        }
     }
     
    public void onoff() // toggle on-off
