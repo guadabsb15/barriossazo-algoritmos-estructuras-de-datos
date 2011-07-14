@@ -9,14 +9,15 @@
  * Created on Jul 13, 2011, 10:01:45 AM
  */
 package hojadetrabajo1.radio;
-import java.math.*;
+
+import java.text.DecimalFormat;
 /**
  *
  * @author BarriosSazo
  */
 public class RadioReal extends javax.swing.JFrame {
     
-    AbstractRadio r = new AbstractRadio();
+    RadioAdapter r = new RadioAdapter();
     boolean On;
     double estacion;
     String emisora;
@@ -25,9 +26,7 @@ public class RadioReal extends javax.swing.JFrame {
     public RadioReal() {
         initComponents();
         On= r.getOn();
-        estacion= r.getEmisora();
-        emisora= estacion+" "; 
-        jLabel1.setText(emisora);
+        mostrarEmisora();
     }
 
     /** This method is called from within the constructor to
@@ -44,11 +43,33 @@ public class RadioReal extends javax.swing.JFrame {
                  r.save(position);
              } else{
                 r.push(position);
-                estacion= r.getEmisora();
-                emisora= estacion+" ";
-                jLabel1.setText(emisora);
+                mostrarEmisora();
               }
          }
+    }
+    
+    private double round2Decimals(double numero) {
+        	DecimalFormat dosDecimales = new DecimalFormat("#.##");
+		return Double.valueOf(dosDecimales.format(numero));
+    }
+    
+    
+    private void mostrarEmisora(){
+            
+        boolean Fm;
+        int e;
+        
+        estacion = r.getEmisora();
+        Fm = r.getFM();
+        if(Fm){ 
+            estacion= round2Decimals(estacion);
+            emisora= estacion +" ";
+        }else{
+           e= (int)estacion;
+           emisora= e+" ";
+        }  
+         
+        jLabel1.setText(emisora);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -113,20 +134,60 @@ public class RadioReal extends javax.swing.JFrame {
         });
 
         jButton5.setText("5");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("6");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("7");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("8");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("9");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setText("10");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setText("11");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setText("12");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jRadioButton1.setText("Guardar");
 
@@ -242,7 +303,7 @@ public class RadioReal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
        Botones(1);
@@ -254,7 +315,7 @@ public class RadioReal extends javax.swing.JFrame {
         r.onoff();
         On= r.getOn();
         if(On){
-            jLabel1.setText(emisora);
+            mostrarEmisora();
         }else{
              jLabel1.setText("Off");
         }
@@ -281,9 +342,7 @@ public class RadioReal extends javax.swing.JFrame {
         if (On){  
             
             r.change();
-            estacion= r.getEmisora();
-            emisora= estacion+" ";
-            jLabel1.setText(emisora);
+            mostrarEmisora();
         }
     }//GEN-LAST:event_jToggleButton2MouseClicked
 
@@ -292,62 +351,59 @@ public class RadioReal extends javax.swing.JFrame {
           if (On){  
             
             r.retroceder();
-            estacion= r.getEmisora();
-            emisora= estacion+" ";
-            jLabel1.setText(emisora);
+            mostrarEmisora();
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
        if (On){    
-           
             r.avanzar();
-            estacion= r.getEmisora();
-            emisora= estacion+" ";
-            jLabel1.setText(emisora);
+            mostrarEmisora();
         }
     }//GEN-LAST:event_jButton14ActionPerformed
 
-      private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         Botones(5);
-    }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         Botones(6);
-    }
+    }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         Botones(7);
-    }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
-       private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         Botones(8);
-    }
+    }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         Botones(9);
-    }
+    }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
         Botones(10);
-    }
+    }//GEN-LAST:event_jButton10ActionPerformed
 
-      private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
         Botones(11);
-    }
+    }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
         Botones(12);
-    }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+
 
    
     /**
