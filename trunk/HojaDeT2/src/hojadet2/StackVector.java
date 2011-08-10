@@ -35,8 +35,12 @@ public class StackVector<E> extends AbstractStack<E>{
     public E pop()
     // pre: stack is not empty
     // post: most recently pushed item is removed and returned
-    {
-        return data.remove(size()-1);
+    {   
+        if (!isEmpty()){
+            return data.remove(size()-1);
+        } else{
+            return null;
+        }
     }
     
 
@@ -45,7 +49,11 @@ public class StackVector<E> extends AbstractStack<E>{
     // pre: stack is not empty
     // post: top value (next to be popped) is returned
     {
-        return data.elementAt(size()-1);
+        if (!isEmpty()){
+            return data.elementAt(size()-1);
+        }else{
+            return null;
+        }
     }
    
     
@@ -54,5 +62,16 @@ public class StackVector<E> extends AbstractStack<E>{
     // post: returns the number of elements in the stack
     {
         return data.size();
+    }
+    
+    public String toString()
+    {
+        String s="";
+        for(int i=0; i<data.size();i++)
+        {
+            s=s+data.elementAt(i)+",";
+        }
+        
+        return s;
     }
 }
