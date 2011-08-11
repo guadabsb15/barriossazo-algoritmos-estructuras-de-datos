@@ -1,6 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Clase abstracta que implementa la interfaz Stack
  */
 package hojadet2;
 
@@ -12,9 +11,14 @@ public abstract class AbstractStack<E> implements Stack<E> {
         
     
     @Override
+    /**
+     * Duvuelve verdadero si el stack esta vacio, de lo contrario
+     * devuelve falso
+     * @return size==0 
+     */
     public boolean isEmpty(){
         return size()==0;
     }
-    // post: returns true if and only if the stack is empty
+  
    
 }
