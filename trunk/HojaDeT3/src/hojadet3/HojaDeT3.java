@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package hojadet3;
-
+import java.util.Random;
 /**
  *
  * @author BarriosSazo
@@ -16,30 +16,27 @@ public class HojaDeT3 {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        int nDatos;
         int[] numeros1;
         int[] numeros2;
-        numeros1= new int[5];
-        numeros2= new int[5];
-        numeros1[0]=5;
-        numeros1[1]=3;
-        numeros1[2]=1;
-        numeros1[3]=4;
-        numeros1[4]=2;
         
-        numeros2[0]=5;
-        numeros2[1]=3;
-        numeros2[2]=1;
-        numeros2[3]=4;
-        numeros2[4]=2;
+        nDatos= 5;
+        numeros1= new int[nDatos];
+        numeros2= new int[nDatos];
         
-        quickSort(numeros1,5);
-        insertionSort(numeros2,5);
+        Random rand = new Random();
+        int temporal;
         
-        for (int i=0;i<5;i++)
-        {
-            System.out.println(numeros1[i]);
-            System.out.println(numeros2[i]);
+        for (int i=0; i<nDatos;i++)
+        {   temporal=rand.nextInt();  
+            numeros1[i]=temporal;
+            numeros2[i]=temporal;
         }
+        
+        quickSort(numeros1,nDatos);
+        insertionSort(numeros2,nDatos);
+        
+      
     }
     
     public static void insertionSort(int data[], int n)
@@ -73,9 +70,11 @@ public class HojaDeT3 {
     // post: data[i] and data[j] are exchanged
     {
         int temp;
-        temp = data[i];
-        data[i] = data[j];
-        data[j] = temp;
+        if (data!=null){
+            temp = data[i];
+            data[i] = data[j];
+            data[j] = temp;
+        }
     }
     
     private static int partition(int data[], int left, int right)
