@@ -1,6 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Se genera un arreglo con n numero de datos enteros random. Luego se usan
+ * dos distintos tipos de sorts (Insertion y Quick) para ordenarlos y se mide
+ * el tiempo usando profilers de cuanto tarda cada sort en hacerlo.
+ * Luego se hace lo mismo solo que para el arreglo con los n datos ya ordenados,
+ * para ver las diferencias en los tiempos.
+ * Los sorts fueron tomados del libro Java Structures de Duane Bailey
  */
 package hojadet3;
 import java.util.Random;
@@ -16,9 +20,9 @@ public class HojaDeT3 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        int nDatos;
-        int[] numeros1;
-        int[] numeros2;
+        int nDatos;// numero de datos en el arreglo
+        int[] numeros1;// arreglo que se usara con el quick sort
+        int[] numeros2;// arreglo que se usara con el insertion sort
         
         nDatos= 100;
         numeros1= new int[nDatos];
@@ -27,12 +31,18 @@ public class HojaDeT3 {
         Random rand = new Random();
         int temporal;
         
+        // se generan los n numeros enteros aleatoriamente y se
+        // almacenan de forma identica en los arreglos
         for (int i=0; i<nDatos;i++)
         {   temporal=rand.nextInt();  
             numeros1[i]=temporal;
             numeros2[i]=temporal;
         }
         
+        // Se llamara a los sorts la primera vez para ver cuanto tiempo tardan en ordenar datos
+        // desordenados. Luego se volveran a llamar ambos sorts para ver cuanto tiempo tardan
+        // en ordenar los datos ya ordenados.
+       
         quickSort(numeros1,nDatos);
   
         
@@ -48,9 +58,15 @@ public class HojaDeT3 {
         
     }
     
+    
+    /**
+     * Insertion sort, en el cual se recorre el array y mientras
+     * avanza, se inserta en la posicion correcta cada dato
+     * 
+     * @param data arreglo a ordenar
+     * @param n    numero de datos en el arreglo
+     */
     public static void insertionSort(int data[], int n)
-    // pre: 0 <= n <= data.length
-    // post: values in data[0..n-1] are in ascending order
     {   
         int numSorted = 1; // number of values in place
         int index; // general index
@@ -74,9 +90,13 @@ public class HojaDeT3 {
         }
     }
     
+    /**
+     * Este procedimiento sirve para intercambiar datos en un array
+     * @param data   array donde se intercambiaran datos
+     * @param i      posicion donde se encuentra el dato
+     * @param j      posicion a donde es intercambiado
+     */
     public static void swap(int data[], int i, int j)
-    // pre: 0 <= i,j < data.length
-    // post: data[i] and data[j] are exchanged
     {
         int temp;
         if (data!=null){
@@ -86,9 +106,15 @@ public class HojaDeT3 {
         }
     }
     
+    /**
+     * Coloca el dato en la posicion izquierda de forma adecuada (ordenada)
+     * @param data
+     * @param left
+     * @param right
+     * @return 
+     */
+    
     private static int partition(int data[], int left, int right)
-    // pre: left <= right
-    // post: data[left] placed in the correct (returned) location
     {
         while (true)
         {
@@ -103,15 +129,25 @@ public class HojaDeT3 {
         }
     }
     
+   /**
+     * Este metodo es el llamado por main para realizar el quick sort
+     * @param data arreglo a ordenar
+     * @param n  numero de datos a ordenar
+     */
     public static void quickSort(int data[], int n)
-    // post: the values in data[0..n-1] are in ascending order
     {
         quickSortRecursive(data,0,n-1);
     }
     
+    /**
+     * Agarra pivote y ordena poniendo a la derecha los mayores a este
+     * y a la izquierda los menores a este y asi hace particiones
+     * hasta que todos los datos quedan ordenados
+     * @param data
+     * @param left
+     * @param right 
+     */
     private static void quickSortRecursive(int data[],int left,int right)
-    // pre: left <= right
-    // post: data[left..right] in ascending order
     {
         int pivot; // the final location of the leftmost value
         if (left >= right) return;

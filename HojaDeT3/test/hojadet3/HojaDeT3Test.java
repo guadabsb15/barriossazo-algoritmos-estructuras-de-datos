@@ -35,8 +35,6 @@ public class HojaDeT3Test extends TestCase {
         int[] data = null;
         int n = 0;
         HojaDeT3.insertionSort(data, n);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
@@ -48,8 +46,6 @@ public class HojaDeT3Test extends TestCase {
         int i = 0;
         int j = 0;
         HojaDeT3.swap(data, i, j);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
@@ -60,7 +56,30 @@ public class HojaDeT3Test extends TestCase {
         int[] data =null;
         int n =0;
         HojaDeT3.quickSort(data, n);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+    }
+     /**
+     * Second Test of quickSort method, of class HojaDeT3.
+     */
+    public void testQuickSort2() {
+        System.out.println("quickSort");
+        int[] data ={5,2,6,3,4};
+        int n =5;
+        HojaDeT3.quickSort(data, n);
+        assertEquals(2, data[0]);
+        assertEquals(6,data[4]);
+        assertEquals(4,data[2]);
+    }
+    
+     /**
+     * Second Test of insertionSort method, of class HojaDeT3.
+     */
+    public void testInsertionSort2() {
+        System.out.println("insertionSort");
+        int[] data = {5,2,6,3,4};
+        int n = 5;
+        HojaDeT3.insertionSort(data, n);
+        assertEquals(2, data[0]);
+        assertEquals(6,data[4]);
+        assertEquals(4,data[2]);
     }
 }
