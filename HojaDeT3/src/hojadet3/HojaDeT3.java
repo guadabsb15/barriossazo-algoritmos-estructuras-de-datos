@@ -20,7 +20,7 @@ public class HojaDeT3 {
         int[] numeros1;
         int[] numeros2;
         
-        nDatos= 5;
+        nDatos= 100;
         numeros1= new int[nDatos];
         numeros2= new int[nDatos];
         
@@ -34,9 +34,18 @@ public class HojaDeT3 {
         }
         
         quickSort(numeros1,nDatos);
+  
+        
+        
         insertionSort(numeros2,nDatos);
         
       
+        
+        quickSort(numeros1,nDatos);
+        
+        
+        insertionSort(numeros2,nDatos);
+        
     }
     
     public static void insertionSort(int data[], int n)
