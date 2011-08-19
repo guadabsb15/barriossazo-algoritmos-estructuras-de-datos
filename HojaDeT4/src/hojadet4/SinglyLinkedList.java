@@ -21,17 +21,20 @@ public class SinglyLinkedList<E> extends AbstractList<E> {
         count = 0;
     }
     
+    @Override
     public int size(){
         
         return count;
     }
     
+    @Override
     public void clear(){
         
         head = null;
         count = 0;
     }
      
+    @Override
     public E remove(E value){
         
         Node<E> finger = head;
@@ -58,6 +61,7 @@ public class SinglyLinkedList<E> extends AbstractList<E> {
     
     }
      
+    @Override
     public int indexOf(E value){
         
         int i=0;
@@ -78,6 +82,7 @@ public class SinglyLinkedList<E> extends AbstractList<E> {
         
     }
      
+    @Override
     public E get(int i){
         Node<E> finger = head;
         Node<E> previous = null;
@@ -98,6 +103,7 @@ public class SinglyLinkedList<E> extends AbstractList<E> {
         
     }
       
+    @Override
     public E set(int i, E o){
         
         Node<E> finger = head;
@@ -120,6 +126,7 @@ public class SinglyLinkedList<E> extends AbstractList<E> {
         
     }
       
+    @Override
     public void add(int i, E o){
         if (i == size()) {
             // location for new value

@@ -1,6 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Para hacer la interfaz de lista, la clase abstracta, la clase nodo
+ * y la lista simplemente encadenada se uso como referencia el libro
+ * Java Structures de Duane Bailey
  */
 package hojadet4;
 
