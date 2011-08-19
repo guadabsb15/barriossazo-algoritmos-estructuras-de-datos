@@ -71,9 +71,9 @@ public class StackList<E> extends AbstractStack<E>{
     public String toString()
     {
         String s="";
-        for(int i=size()-1; i>=0;i--) //loop que recorre al vector y concatena sus elementos
+        for(int j=size()-1; j>=0;j--) //loop que recorre al vector y concatena sus elementos
         {
-            s=s+data.get(i)+",";
+            s=s+data.get(j)+",";
         }
         
         return s;
