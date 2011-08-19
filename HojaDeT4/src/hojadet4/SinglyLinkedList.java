@@ -86,6 +86,7 @@ public class SinglyLinkedList<E> extends AbstractList<E> {
         {
             previous = finger;
             finger = finger.next();
+            contador++;
         }
         // finger points to target value
         if (finger != null) {
@@ -106,6 +107,7 @@ public class SinglyLinkedList<E> extends AbstractList<E> {
         {
             previous = finger;
             finger = finger.next();
+            contador++;
         }
         // finger points to target value
         if (finger != null) {
