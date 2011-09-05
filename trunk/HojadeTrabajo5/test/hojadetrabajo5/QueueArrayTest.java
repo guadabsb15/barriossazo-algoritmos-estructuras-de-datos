@@ -69,4 +69,19 @@ public class QueueArrayTest extends TestCase {
         assertEquals(expResult, result);
         
     }
+    
+    
+         /**
+     * Test of size method, of class QueueList.
+     */
+    public void testSize() {
+        System.out.println("size");
+        QueueArray instance = new QueueArray(5);
+        instance.add(4);
+        instance.add(3);
+        instance.add(1);
+        Object expResult = 3;
+        Object result = instance.size();
+        assertEquals(expResult, result);
+    }
 }

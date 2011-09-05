@@ -53,6 +53,9 @@ public class QueueArray<E> extends AbstractQueue<E>{
         return (E)data[head];
     }
    
+    public int size(){
+        return count;
+    }
 }
 
 

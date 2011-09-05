@@ -10,7 +10,7 @@ package hojadetrabajo5;
  */
 public class QueueList<E> extends AbstractQueue<E>{
    
-    protected List<E> data;
+    protected CircularList<E> data;
    
     public QueueList()
     // post: constructs a new, empty queue
@@ -40,6 +40,10 @@ public class QueueList<E> extends AbstractQueue<E>{
     // post: the element at the head of the queue is returned
     {
         return data.getFirst();
+    }
+    
+    public int size(){
+        return data.size();
     }
 }
 
