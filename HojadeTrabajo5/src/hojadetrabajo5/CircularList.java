@@ -1,6 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Para hacer la lista circular se uso como referencia el libro
+ * Java Structures de Duane Bailey
  */
 package hojadetrabajo5;
 

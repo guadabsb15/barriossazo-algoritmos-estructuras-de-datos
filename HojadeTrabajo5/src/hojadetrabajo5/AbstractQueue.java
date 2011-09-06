@@ -30,6 +30,9 @@ public abstract class AbstractQueue<E> implements Queue<E>{
         return peek();
     }
    
+    /**
+     * Elimina todos los elementos de la cola
+     */
     public void clear()
     {
         while(peek()!=null){
