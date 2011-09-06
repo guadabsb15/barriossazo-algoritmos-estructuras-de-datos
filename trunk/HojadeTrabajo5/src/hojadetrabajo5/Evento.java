@@ -37,6 +37,13 @@ public class Evento {
     public int getCola(){
         return cola;
     }
+   
+    public Cliente getCliente(){
+        return c;
+    }
     
+    public boolean getLlegada(){
+        return esLlegada;
+    }
     
 }

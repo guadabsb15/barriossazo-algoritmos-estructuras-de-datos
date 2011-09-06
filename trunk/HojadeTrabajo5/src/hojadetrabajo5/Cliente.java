@@ -12,7 +12,7 @@ public class Cliente {
     
     private int tLlegada;
     private int tTransaccion;
-    private int tEnBanco;
+   
     
     public Cliente(int t1,int t2){
         
@@ -28,11 +28,5 @@ public class Cliente {
         return tTransaccion;
     }
     
-    public int getEnBanco(){
-        return tEnBanco;
-    }
-    
-    public void setEnBanco(int t){
-        tEnBanco=t;
-    }
+  
 }
