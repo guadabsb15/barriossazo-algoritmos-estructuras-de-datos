@@ -1,6 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Para hacer la cola implementada con array y la cola implementada con 
+ * lista circular, se uso como referencia el libro
+ * Java Structures de Duane Bailey
  */
 package hojadetrabajo5;
 
