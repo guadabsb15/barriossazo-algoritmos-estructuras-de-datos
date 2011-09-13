@@ -29,7 +29,7 @@ public class HojaDeT6 {
         //crea lista de eventos
         LinkedList<Evento> ListaEventos= new LinkedList<Evento>();
         
-        int nclientes=10;  //se puede ir cambiando para cambiar el numero de clientes
+        int nclientes=150;  //se puede ir cambiando para cambiar el numero de clientes
         
         Random rand = new Random();
         int temp1,temp2;
@@ -120,10 +120,7 @@ public class HojaDeT6 {
                 } 
            }
           
-           for (int i=0; i<ListaEventos.size();i++){
-               System.out.println(ListaEventos.get(i).getTiempo());
-           }
-         System.out.println();
+
        }
            promedio= suma/nclientes; // se calcula el promedio de tiempo en el banco
            
