@@ -19,14 +19,14 @@ public class HojaDeT6 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        //Crear Colas
+        //Crear Colas ahora con JCF
         Queue<Cliente> cola1= new LinkedList<Cliente>();
         Queue<Cliente> cola2= new LinkedList<Cliente>();
         Queue<Cliente> cola3= new LinkedList<Cliente>();
         Queue<Cliente> cola4= new LinkedList<Cliente>();
         
         
-        //crea lista de eventos
+        //crea lista de eventos con JCF
         LinkedList<Evento> ListaEventos= new LinkedList<Evento>();
         
         int nclientes=150;  //se puede ir cambiando para cambiar el numero de clientes
