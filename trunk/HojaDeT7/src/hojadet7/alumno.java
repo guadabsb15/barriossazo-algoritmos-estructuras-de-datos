@@ -12,6 +12,11 @@ public class alumno {
     int carnet;
     Date fecha;
     
+    alumno(int c, Date f){
+        carnet = c;
+        fecha = f;
+    }
+    
     public int getCarnet(){
         return carnet;
     }
@@ -20,4 +25,6 @@ public class alumno {
         
         return fecha;
     }
+    
+  
 }

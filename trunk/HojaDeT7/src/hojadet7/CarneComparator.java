@@ -8,7 +8,7 @@ import java.util.Comparator;
  *
  * @author BarriosSazo
  */
- public class CarneComparator implements Comparator{
+ public class CarneComparator<E> implements Comparator{
     
     
     @Override
@@ -16,7 +16,7 @@ import java.util.Comparator;
         int al1Carnet = ((alumno)al1).getCarnet();        
         int al2Carnet = ((alumno)al2).getCarnet();
         
-        return al1Carnet-al2Carnet;
+        return al2Carnet-al1Carnet;
     }
     
     

@@ -15,5 +15,9 @@ public class HojaDeT7 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        CarneComparator<alumno> porCarne = new CarneComparator<alumno>();
+        
+        VectorHeap primero= new VectorHeap (porCarne);
     }
 }
