@@ -8,7 +8,7 @@ package hojadet7;
  *
  * @author BarriosSazo
  */
-public interface PriorityQueue <E extends Comparable<E>>{
+public interface PriorityQueue <E>{
     
     public E getFirst();
     // pre: !isEmpty()

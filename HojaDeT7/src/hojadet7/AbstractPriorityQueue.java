@@ -3,12 +3,13 @@
  * and open the template in the editor.
  */
 package hojadet7;
+import java.util.Comparator;
 
 /**
  *
  * @author BarriosSazo
  */
-public abstract class AbstractPriorityQueue<E extends Comparable<E>> implements PriorityQueue<E>{
+public abstract class AbstractPriorityQueue<E> implements PriorityQueue<E>{
     
     
     @Override

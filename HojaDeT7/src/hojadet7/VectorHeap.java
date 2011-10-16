@@ -5,31 +5,24 @@
 package hojadet7;
 
 import java.util.Vector;
+import java.util.Comparator;
 /**
  *
  * @author BarriosSazo
  */
-public class VectorHeap<E extends Comparable<E>> extends AbstractPriorityQueue<E>{
+public class VectorHeap<E> extends AbstractPriorityQueue<E>{
     
     protected Vector<E> data; // the data, kept in heap order
+    
+    protected Comparator<? super E> ordering; // the comparison function
 
-    public VectorHeap()
+    public VectorHeap(Comparator<? super E> ordering)
     // post: constructs a new priority queue
     {
-
         data = new Vector<E>();
+        this.ordering = ordering;
     }
     
-    public VectorHeap(Vector<E> v)
-    // post: constructs a new priority queue from an unordered vector
-    {
-        int i;
-        data = new Vector<E>(v.size()); // we know ultimate size
-        for (i = 0; i < v.size(); i++)
-        { // add elements to heap
-            add(v.get(i));
-        }
-    }
     
     protected static int parent(int i)
     // pre: 0 <= i < size
@@ -58,7 +51,7 @@ public class VectorHeap<E extends Comparable<E>> extends AbstractPriorityQueue<E
     {
         int parent = parent(leaf);
         E value = data.get(leaf);
-        while (leaf > 0 && (value.compareTo(data.get(parent)) < 0))
+        while (leaf > 0 && (ordering.compare(data.get(parent),value) < 0))
         {
             data.set(leaf,data.get(parent));
             leaf = parent;
@@ -87,13 +80,13 @@ public class VectorHeap<E extends Comparable<E>> extends AbstractPriorityQueue<E
         int childpos = left(root);
         if (childpos < heapSize)
         {
-            if ((right(root) < heapSize) &&((data.get(childpos+1)).compareTo
-            (data.get(childpos)) < 0))
+            if ((right(root) < heapSize) &&(ordering.compare
+            (data.get(childpos+1),data.get(childpos)) < 0))
             {
                 childpos++;
             }
             // Assert: childpos indexes smaller of two children
-            if ((data.get(childpos)).compareTo (value) < 0)
+            if (ordering.compare(value,data.get(childpos)) < 0)
             {
                 data.set(root,data.get(childpos));
                 root = childpos; // keep moving down
