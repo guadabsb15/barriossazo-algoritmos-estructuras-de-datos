@@ -81,7 +81,7 @@ public class VectorHeap<E> extends AbstractPriorityQueue<E>{
         if (childpos < heapSize)
         {
             if ((right(root) < heapSize) &&(ordering.compare
-            (data.get(childpos+1),data.get(childpos)) < 0))
+            (data.get(childpos), data.get(childpos+1)) < 0))
             {
                 childpos++;
             }

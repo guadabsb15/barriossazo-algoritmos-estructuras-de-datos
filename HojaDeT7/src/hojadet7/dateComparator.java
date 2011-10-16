@@ -8,7 +8,7 @@ import java.util.*;
  *
  * @author BarriosSazo
  */
-public class dateComparator implements Comparator{
+public class dateComparator<E> implements Comparator{
     
     
     @Override
@@ -18,7 +18,7 @@ public class dateComparator implements Comparator{
         Date al1Fecha = ((alumno)al1).getFecha();        
         Date al2Fecha = ((alumno)al2).getFecha();
         
-        numero= al1Fecha.compareTo(al2Fecha);
+        numero= al2Fecha.compareTo(al1Fecha);
             
         return numero;
     }
